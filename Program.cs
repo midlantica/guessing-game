@@ -6,12 +6,15 @@ namespace guessing_game
     {
         static void Main(string[] args)
         {
-            string secretNumber = "42";
+            // string secretNumber = "42";
+            int secretNumber = new Random().Next(1, 5);
             int numberAttempts = 0;
 
+            Console.WriteLine("\n### GUESS THE NUMBER GAME ###");
+
             while (numberAttempts < 4) {
-                Console.WriteLine("Can you guess the secret number?");
-                string numberGuess = Console.ReadLine();
+                Console.Write("\nGuess the secret number? >> ");
+                int numberGuess = Int32.Parse(Console.ReadLine());
 
                 if (numberGuess == secretNumber)
                 {
@@ -21,10 +24,21 @@ namespace guessing_game
                 else
                 {
                     numberAttempts++;
-                    Console.WriteLine("Try again!");
-                }
-            }
+                    // Console.WriteLine("Incorrect. Try again!");
 
+                    if (numberGuess > secretNumber)
+                    {
+                        Console.WriteLine("Too high, Try again!");
+                    }
+                    else if (numberGuess < secretNumber)
+                    {
+                        Console.WriteLine("Too low. Try again!");
+                    }
+
+                    Console.WriteLine($"{numberAttempts} of {4 - numberAttempts} guesses left.");
+                }
+
+            }
 
         }
     }
