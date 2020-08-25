@@ -36,7 +36,7 @@ namespace guessing_game
                 }
                 else if (difficulty == "4")
                 {
-                    numberAllowedGuesses = 2000; // Cheater
+                    numberAllowedGuesses = int.MaxValue; // Cheater
                     difficultySet = true;
                 }
             }
